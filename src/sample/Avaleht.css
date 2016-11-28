@@ -1,0 +1,14 @@
+.root {
+    -fx-background-color: #383838;
+    -fx-font-family: serif;
+}
+
+.text {
+    -fx-font-family: fantasy;
+    -fx-font-size: 20px;
+}
+
+.button {
+    -fx-border-color: antiquewhite;
+    -fx-background-color: snow;
+}
