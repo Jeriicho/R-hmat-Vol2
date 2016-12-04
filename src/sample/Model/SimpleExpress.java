@@ -1,8 +1,9 @@
-package sample;
+package sample.Model;
 import org.jsoup.*;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import sample.Model.Bussid;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

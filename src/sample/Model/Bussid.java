@@ -1,8 +1,8 @@
-package sample;
+package sample.Model;
 
 import java.util.List;
 
-abstract class Bussid implements Pileteid{
+abstract class Bussid implements Pileteid {
     private String lähtekoht;
     private String sihtkoht;
     private String päev;

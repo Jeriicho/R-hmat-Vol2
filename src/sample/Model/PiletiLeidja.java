@@ -1,4 +1,9 @@
-package sample;
+package sample.Model;
+import sample.Model.AegHind;
+import sample.Model.Bussid;
+import sample.Model.LuxExpress;
+import sample.Model.SimpleExpress;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

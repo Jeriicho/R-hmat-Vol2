@@ -1,4 +1,4 @@
-package sample;
+package sample.Model;
 
 public class AegHind implements Comparable<AegHind>{
     private String aeg;

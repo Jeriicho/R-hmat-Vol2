@@ -1,4 +1,6 @@
-package sample;
+package sample.Model;
+import sample.Model.PiletiLeidja;
+
 import java.util.Scanner;
 
 public class TestBussid {

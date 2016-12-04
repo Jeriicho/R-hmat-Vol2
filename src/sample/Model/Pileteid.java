@@ -1,4 +1,4 @@
-package sample;
+package sample.Model;
 
 /**
  * Created by Marko on 13/10/2016.
