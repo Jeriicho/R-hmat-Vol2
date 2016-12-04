@@ -5,14 +5,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.Model.Person;
-import sample.Model.PiletiLeidja;
+import sample.Model.LeiaBuss;
 import sample.View.KoikBussidController;
 import sample.View.PersonOverviewController;
 
+import javax.swing.*;
 import java.io.IOException;
 
 /**
@@ -22,7 +24,7 @@ public class Peaklass extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private ObservableList<PiletiLeidja> bussid = FXCollections.observableArrayList();
+    private ObservableList<LeiaBuss> bussid = FXCollections.observableArrayList();
 
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -33,12 +35,12 @@ public class Peaklass extends Application {
         näitaKõikiBusse();
     }
 
-    public Peaklass() {
-        bussid.add(new PiletiLeidja("Tallinn", "Tartu", "5", "12"));
 
+
+    public Peaklass() {
     }
 
-    public ObservableList<PiletiLeidja> getBussid() {
+    public ObservableList<LeiaBuss> getBussid() {
         return bussid;
     }
 

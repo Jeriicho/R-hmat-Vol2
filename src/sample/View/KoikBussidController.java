@@ -1,5 +1,6 @@
 package sample.View;
 
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -7,7 +8,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import sample.MainApp;
-import sample.Model.PiletiLeidja;
+import sample.Model.LeiaBuss;
+import sample.Model.LeiaBuss;
 import sample.Peaklass;
 
 /**
@@ -16,19 +18,19 @@ import sample.Peaklass;
 public class KoikBussidController {
 
     @FXML
-    private TableView<PiletiLeidja> bussitabel;
+    private TableView<LeiaBuss> bussitabel;
 
     @FXML
-    TableColumn<PiletiLeidja, String> väljumisVeerg;
+    TableColumn<LeiaBuss, String> väljumisVeerg;
 
     @FXML
-    TableColumn<PiletiLeidja, String> saabumisVeerg;
+    TableColumn<LeiaBuss, String> saabumisVeerg;
 
     @FXML
-    TableColumn<PiletiLeidja, String> bussiVeerg;
+    TableColumn<LeiaBuss, String> bussiVeerg;
 
     @FXML
-    TableColumn<PiletiLeidja, String> kuupäevaVeerg;
+    TableColumn<LeiaBuss, String> kuupäevaVeerg;
 
     @FXML
     private ChoiceBox<String> kuupäev;
@@ -47,10 +49,6 @@ public class KoikBussidController {
 
     private Peaklass peaklass;
 
-    @FXML
-    private void lisaBuss() {
-        //TO-DO
-    }
 
     public KoikBussidController() {};
 
@@ -64,17 +62,24 @@ public class KoikBussidController {
 
     }
 
-    private void näitaBusse(PiletiLeidja piletiLeidja) {
+    private void näitaBusse(LeiaBuss LeiaBuss) {
 
     }
 
     @FXML
     private void nupuVajutus() {
-        
+        String kp = kuupäev.getValue();
+        String month = kuu.getValue();
+        String from = lähtekoht.getValue();
+        String to = sihtkoht.getValue();
+        String bus = buss.getValue();
+        LeiaBuss buska = new LeiaBuss("tallinn", "tartu", "5", "11");
+        peaklass.getBussid().add(buska);
+        väljumisVeerg.setCellValueFactory(data -> data.getValue().lähtekohtProperty());
     }
 
     public void setMainApp(Peaklass peaklass) {
         this.peaklass = peaklass;
-        //bussitabel.setItems(peaklass.getBussid());
+        bussitabel.setItems(peaklass.getBussid());
     }
 }
