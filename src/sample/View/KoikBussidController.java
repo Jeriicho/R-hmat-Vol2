@@ -1,14 +1,10 @@
 package sample.View;
 
-import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import sample.MainApp;
-import sample.Model.LeiaBuss;
 import sample.Model.LeiaBuss;
 import sample.Peaklass;
 
