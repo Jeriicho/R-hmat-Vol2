@@ -1,4 +1,5 @@
 package sample.Model;
+import javafx.beans.property.StringProperty;
 import sample.Model.AegHind;
 import sample.Model.Bussid;
 import sample.Model.LuxExpress;
@@ -15,6 +16,10 @@ public class PiletiLeidja {
     private String päev;
     private String kuu;
     private List<Bussid> bussid = new ArrayList<>();
+    //private final StringProperty lähtekohtProperty;
+    //private final StringProperty sihtkohtProperty;
+    //private final StringProperty päevProperty;
+
 
     public PiletiLeidja(String lähtekoht, String sihtkoht, String päev, String kuu) {
         this.lähtekoht = lähtekoht;

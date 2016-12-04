@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.View.KoikBussidController">
    <children>
       <SplitPane dividerPositions="0.29797979797979796" layoutX="189.0" layoutY="152.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -24,31 +23,31 @@
                               <Insets bottom="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <ChoiceBox prefWidth="150.0" />
+                        <ChoiceBox fx:id="kuupäev" prefWidth="150.0" />
                         <Label text="Sisesta kuu:">
                            <VBox.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <ChoiceBox prefWidth="150.0" />
+                        <ChoiceBox fx:id="kuu" prefWidth="150.0" />
                         <Label text="Sisesta lähtekoht:">
                            <VBox.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <ChoiceBox prefWidth="150.0" />
+                        <ChoiceBox fx:id="lähtekoht" prefWidth="150.0" />
                         <Label text="Sisesta sihtkoht:">
                            <VBox.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <ChoiceBox prefWidth="150.0" />
+                        <ChoiceBox fx:id="sihtkoht" prefWidth="150.0" />
                         <Label text="Vali buss:">
                            <VBox.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <ChoiceBox prefWidth="150.0">
+                        <ChoiceBox fx:id="buss" prefWidth="150.0">
                            <VBox.margin>
                               <Insets bottom="20.0" />
                            </VBox.margin>
@@ -60,12 +59,12 @@
             </AnchorPane>
           <AnchorPane>
                <children>
-                  <TableView layoutY="-7.0" prefHeight="398.0" prefWidth="417.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-7.0">
+                  <TableView fx:id="bussitabel" layoutY="-7.0" prefHeight="398.0" prefWidth="417.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-7.0">
                     <columns>
-                      <TableColumn prefWidth="79.0" text="Väljub" />
-                      <TableColumn prefWidth="84.0" text="Saabub" />
-                        <TableColumn prefWidth="154.0" text="Buss" />
-                        <TableColumn prefWidth="99.0" text="Kuupäev" />
+                      <TableColumn fx:id="väljumisVeerg" prefWidth="79.0" text="Väljub" />
+                      <TableColumn fx:id="saabumisVeerg" prefWidth="84.0" text="Saabub" />
+                        <TableColumn fx:id="bussiVeerg" prefWidth="154.0" text="Buss" />
+                        <TableColumn fx:id="kuupäevaVeerg" prefWidth="99.0" text="Kuupäev" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

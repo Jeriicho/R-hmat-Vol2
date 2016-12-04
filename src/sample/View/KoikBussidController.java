@@ -28,13 +28,13 @@ public class KoikBussidController {
     TableColumn<PiletiLeidja, String> bussiVeerg;
 
     @FXML
-    TableColumn<PiletiLeidja, Integer> kuupäevaVeerg;
+    TableColumn<PiletiLeidja, String> kuupäevaVeerg;
 
     @FXML
-    private ChoiceBox<Integer> kuupäev;
+    private ChoiceBox<String> kuupäev;
 
     @FXML
-    private ChoiceBox<Integer> kuu;
+    private ChoiceBox<String> kuu;
 
     @FXML
     private ChoiceBox<String> lähtekoht;
@@ -56,28 +56,25 @@ public class KoikBussidController {
 
     @FXML
     private void initialize() {
-        //väljumisVeerg.setCellValueFactory(veeruAndmed -> veeruAndmed.getValue().);    <-- getValue() taha läheb vastav meetod, millega populeerida tabel, peaks tekitama PiletiLeidjale
-        //saabumisVeerg.setCellValueFactory(veeruAndmed -> veeruAndmed.getValue().);
-        //bussiVeerg.setCellValueFactory(veeruAndmed -> veeruAndmed.getValue().);
-        //kuupäevaVeerg.setCellValueFactory(veeruAndmed -> veeruAndmed.getValue().);
-
-        kuupäev.setItems(FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31));
-        kuu.setItems(FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12));
+        kuupäev.setItems(FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"));
+        kuu.setItems(FXCollections.observableArrayList("Jaanuar", "Veebruar", "Märts", "Aprill", "Mai", "Juuni", "August", "September", "Oktoober", "November", "Detsember"));
         lähtekoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Pärnu", "Narva"));
         sihtkoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Pärnu", "Narva"));
         buss.setItems(FXCollections.observableArrayList("Lux Express", "Simple Express"));
 
-        //bussitabel.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showPersonDetails(newValue));
     }
 
     private void näitaBusse(PiletiLeidja piletiLeidja) {
 
     }
 
+    @FXML
+    private void nupuVajutus() {
+        
+    }
+
     public void setMainApp(Peaklass peaklass) {
         this.peaklass = peaklass;
-
-        // Add observable list data to the table
-        bussitabel.setItems(peaklass.getBussid());
+        //bussitabel.setItems(peaklass.getBussid());
     }
 }
