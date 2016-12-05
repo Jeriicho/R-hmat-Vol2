@@ -10,6 +10,9 @@ import sample.Model.LeiaBuss;
 import sample.Model.PiletiLeidja;
 import sample.Peaklass;
 
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +68,7 @@ public class KoikBussidController {
     private void nupuVajutus() throws Exception {
 
         if (!(bussitabel.getItems().isEmpty())) {
-            peaklass.getBussid().removeAll();
+            bussitabel.getColumns().removeAll();
         }
         List<BussiInfo> bussiInfo  = new ArrayList<>();
         String kp = kuupäev.getValue();
@@ -75,7 +78,9 @@ public class KoikBussidController {
         LeiaBuss buska = new LeiaBuss(from, to, kp, kuuNumber(month));
         for (int i = 0; i < buska.getVäljumine().size(); i++) {
             bussiInfo.add(new BussiInfo(buska.getVäljumine().get(i), buska.getHind().get(i), buska.getMisBuss().get(i)));
+
         }
+
         for (BussiInfo buss : bussiInfo) {
             peaklass.getBussid().add(buss);
         }

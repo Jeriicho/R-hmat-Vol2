@@ -4,13 +4,16 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
+import java.io.Serializable;
+
 /**
  * Created by Marko on 05/12/2016.
  */
-public class BussiInfo {
+public class BussiInfo implements Serializable{
     private StringProperty väljumine;
     private DoubleProperty hind;
     private StringProperty misBuss;
+    private static final long serialVersionUID = 1L;
 
     public String getVäljumine() {
         return väljumine.get();
