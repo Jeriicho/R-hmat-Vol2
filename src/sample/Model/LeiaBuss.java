@@ -13,7 +13,7 @@ public class LeiaBuss extends PiletiLeidja {
     private StringProperty kuu;
     private StringProperty lähteaeg;
 
-    public LeiaBuss(String lähtekoht, String sihtkoht, String päev, String kuu) throws Exception{
+    public LeiaBuss(String lähtekoht, String sihtkoht, String päev, String kuu){
         super(lähtekoht, sihtkoht, päev, kuu);
         this.lähtekoht = new SimpleStringProperty(lähtekoht);
         this.sihtkoht = new SimpleStringProperty(sihtkoht);

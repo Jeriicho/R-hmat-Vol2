@@ -31,6 +31,6 @@ abstract class Bussid implements Pileteid {
     public String getKuu() {
         return kuu;
     }
-    abstract List<AegHind> leiaVabuKohti() throws Exception;
+    abstract List<AegHind> leiaVabuKohti();
     abstract List<String> andmed(String väljumine,String kellaaeg,String misBuss);
 }

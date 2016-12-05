@@ -65,7 +65,7 @@ public class KoikBussidController {
     }
 
     @FXML
-    private void nupuVajutus() throws Exception {
+    private void nupuVajutus() throws IOException {
         bfw = new BufferedWriter(new FileWriter("logi.log", true));
         if (!(bussitabel.getItems().isEmpty())) {
             bussitabel.getColumns().removeAll();

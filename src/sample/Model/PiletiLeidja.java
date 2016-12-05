@@ -22,7 +22,7 @@ public class PiletiLeidja {
     public List<AegHind> aegJaHind = new ArrayList<>();
 
 
-    public PiletiLeidja(String lähtekoht, String sihtkoht, String päev, String kuu) throws Exception {
+    public PiletiLeidja(String lähtekoht, String sihtkoht, String päev, String kuu){
         this.lähtekoht = lähtekoht;
         this.sihtkoht = sihtkoht;
         this.päev = päev;
@@ -51,7 +51,7 @@ public class PiletiLeidja {
         return misBuss;
     }
 
-    public List<AegHind> leiaPiletid() throws Exception{
+    public List<AegHind> leiaPiletid(){
         System.out.println("Otsin pileteid marsruudil " + lähtekoht + " -> " + sihtkoht + ".");
         System.out.println("Kuupäeval " + päev + "." + kuu + ".");
         List<AegHind> ajadHinnad = new ArrayList<>();
@@ -65,7 +65,7 @@ public class PiletiLeidja {
         }
         return ajadHinnad;
     }
-    public void prindiPiletid() throws Exception{
+    public void prindiPiletid(){
         Random r = new Random();
         List<AegHind> ajadHinnad = leiaPiletid();
         Collections.sort(ajadHinnad);
