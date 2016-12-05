@@ -115,11 +115,9 @@
       <file leaf-file-name="KoikBussid.fxml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/View/KoikBussid.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-              <folding>
-                <element signature="n#SplitPane#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="264">
+              <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
           <provider editor-type-id="JavaFX-Scene-Builder">
@@ -167,16 +165,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-396">
               <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logi.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logi.log">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5104">
-              <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -236,6 +224,7 @@
         <option value="$PROJECT_DIR$/src/sample/View/TühjaLahtriErind.java" />
         <option value="$PROJECT_DIR$/src/sample/View/KoikBussidController.java" />
         <option value="$PROJECT_DIR$/src/sample/View/RootLayout.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/View/KoikBussid.fxml" />
       </list>
     </option>
   </component>
@@ -325,28 +314,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="R-hmat-Vol2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="R-hmat-Vol2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="View" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1025,12 +992,12 @@
       <workItem from="1480839909631" duration="33595000" />
       <workItem from="1480951674495" duration="3161000" />
       <workItem from="1480954950769" duration="910000" />
-      <workItem from="1480955985044" duration="2749000" />
+      <workItem from="1480955985044" duration="3427000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61936000" />
+    <option name="totallyTimeSpent" value="62614000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
@@ -1122,7 +1089,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../r-hmat-ks/Rühmatöö/SimpleExpress.java" />
     <entry file="file://$PROJECT_DIR$/../r-hmat-ks/Rühmatöö/PiletiLeidja.java" />
     <entry file="file://$PROJECT_DIR$/../r-hmat-ks/Rühmatöö/TestBussid.java" />
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java" />
@@ -1355,13 +1321,19 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/View/KoikBussid.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-          <folding>
-            <element signature="n#SplitPane#0;n#children#0;n#AnchorPane#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="264">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
