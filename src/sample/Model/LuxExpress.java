@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +29,9 @@ public class LuxExpress extends Bussid {
     public String genereeriMaandumisLeht() {
         String algus = "https://ticket.luxexpress.eu/reiside-soiduplaan/";
         String kuu = "?Date=";
-        String lõpp = "-2016&ReturnDate=&MultiHopSearchSortOrder=StartTimeAndDuration&CampaignCode=&Currency=CURRENCY.EUR";
+        String lõpp = "";
+        if (getKuu() == "12") lõpp = "-2016&ReturnDate=&MultiHopSearchSortOrder=StartTimeAndDuration&CampaignCode=&Currency=CURRENCY.EUR";
+        else lõpp = "-2017&ReturnDate=&MultiHopSearchSortOrder=StartTimeAndDuration&CampaignCode=&Currency=CURRENCY.EUR";
         String koguURL = algus + getLähtekoht() + "/" + getSihtkoht() + kuu + getKuu() + "-" + getPäev() + lõpp;
         return koguURL;
     }
