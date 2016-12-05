@@ -8,10 +8,14 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import sample.Model.AegHind;
+import sample.Model.BussiInfo;
 import sample.Model.LeiaBuss;
+import sample.Model.PiletiLeidja;
 import sample.View.KoikBussidController;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by Marko on 04/12/2016.
@@ -20,7 +24,7 @@ public class Peaklass extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private ObservableList<LeiaBuss> bussid = FXCollections.observableArrayList();
+    private ObservableList<BussiInfo> bussid = FXCollections.observableArrayList();
 
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -36,8 +40,12 @@ public class Peaklass extends Application {
     public Peaklass() {
     }
 
-    public ObservableList<LeiaBuss> getBussid() {
+    public ObservableList<BussiInfo> getBussid() {
         return bussid;
+    }
+
+    public void setBussid(ObservableList<BussiInfo> bussid) {
+        this.bussid = bussid;
     }
 
     public void initRootLayout() {

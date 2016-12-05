@@ -1,5 +1,6 @@
 package sample.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 abstract class Bussid implements Pileteid {
@@ -31,4 +32,5 @@ abstract class Bussid implements Pileteid {
         return kuu;
     }
     abstract List<AegHind> leiaVabuKohti() throws Exception;
+    abstract List<String> andmed(String väljumine,String kellaaeg,String misBuss);
 }

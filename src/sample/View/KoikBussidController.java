@@ -5,8 +5,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import sample.Model.BussiInfo;
 import sample.Model.LeiaBuss;
+import sample.Model.PiletiLeidja;
 import sample.Peaklass;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Marko on 04/12/2016.
@@ -14,19 +19,16 @@ import sample.Peaklass;
 public class KoikBussidController {
 
     @FXML
-    private TableView<LeiaBuss> bussitabel;
+    private TableView<BussiInfo> bussitabel;
 
     @FXML
-    TableColumn<LeiaBuss, String> väljumisVeerg;
+    TableColumn<BussiInfo, String> väljumisVeerg;
 
     @FXML
-    TableColumn<LeiaBuss, String> saabumisVeerg;
+    TableColumn<BussiInfo, String> bussiVeerg;
 
     @FXML
-    TableColumn<LeiaBuss, String> bussiVeerg;
-
-    @FXML
-    TableColumn<LeiaBuss, String> kuupäevaVeerg;
+    TableColumn<BussiInfo, String> hinnaVeerg;
 
     @FXML
     private ChoiceBox<String> kuupäev;
@@ -40,8 +42,6 @@ public class KoikBussidController {
     @FXML
     private ChoiceBox<String> sihtkoht;
 
-    @FXML
-    private ChoiceBox<String> buss;
 
     private Peaklass peaklass;
 
@@ -54,7 +54,6 @@ public class KoikBussidController {
         kuu.setItems(FXCollections.observableArrayList("Jaanuar", "Veebruar", "Märts", "Aprill", "Mai", "Juuni", "August", "September", "Oktoober", "November", "Detsember"));
         lähtekoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Pärnu", "Narva"));
         sihtkoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Pärnu", "Narva"));
-        buss.setItems(FXCollections.observableArrayList("Lux Express", "Simple Express"));
 
     }
 
@@ -63,19 +62,59 @@ public class KoikBussidController {
     }
 
     @FXML
-    private void nupuVajutus() {
+    private void nupuVajutus() throws Exception {
+
+        if (!(bussitabel.getItems().isEmpty())) {
+            peaklass.getBussid().removeAll();
+        }
+        List<BussiInfo> bussiInfo  = new ArrayList<>();
         String kp = kuupäev.getValue();
         String month = kuu.getValue();
         String from = lähtekoht.getValue();
         String to = sihtkoht.getValue();
-        String bus = buss.getValue();
-        LeiaBuss buska = new LeiaBuss("tallinn", "tartu", "5", "11");
-        peaklass.getBussid().add(buska);
-        väljumisVeerg.setCellValueFactory(data -> data.getValue().lähtekohtProperty());
+        LeiaBuss buska = new LeiaBuss(from, to, kp, kuuNumber(month));
+        for (int i = 0; i < buska.getVäljumine().size(); i++) {
+            bussiInfo.add(new BussiInfo(buska.getVäljumine().get(i), buska.getHind().get(i), buska.getMisBuss().get(i)));
+        }
+        for (BussiInfo buss : bussiInfo) {
+            peaklass.getBussid().add(buss);
+        }
+        väljumisVeerg.setCellValueFactory(data -> data.getValue().väljumineProperty());
+        bussiVeerg.setCellValueFactory(data -> data.getValue().misBussProperty());
+        hinnaVeerg.setCellValueFactory(data -> data.getValue().hindProperty());
     }
 
     public void setMainApp(Peaklass peaklass) {
         this.peaklass = peaklass;
         bussitabel.setItems(peaklass.getBussid());
+    }
+
+    public String kuuNumber(String kuu) {
+        if (kuu.equals("Jaanuar")) {
+            return "1";
+        } else if (kuu.equals("Veebruar")) {
+            return "2";
+        } else if (kuu.equals("Märts")) {
+            return "3";
+        } else if (kuu.equals("Aprill")) {
+            return "4";
+        } else if (kuu.equals("Mai")) {
+            return "5";
+        } else if (kuu.equals("Juuni")) {
+            return "6";
+        } else if (kuu.equals("Juuli")) {
+            return "7";
+        } else if (kuu.equals("August")) {
+            return "8";
+        } else if (kuu.equals("September")) {
+            return "9";
+        } else if (kuu.equals("Oktoober")) {
+            return "10";
+        } else if (kuu.equals("November")) {
+            return "11";
+        } else if (kuu.equals("Detsember")) {
+            return "12";
+        }
+        return null;
     }
 }

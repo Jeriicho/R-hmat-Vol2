@@ -1,5 +1,8 @@
 package sample.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AegHind implements Comparable<AegHind>{
     private String aeg;
     private double hind;
@@ -9,6 +12,10 @@ public class AegHind implements Comparable<AegHind>{
         this.aeg = aeg;
         this.hind = hind;
         this.buss = buss;
+    }
+
+    public String saaHind() {
+        return String.valueOf(hind);
     }
 
     public String getAeg() {
@@ -51,5 +58,12 @@ public class AegHind implements Comparable<AegHind>{
         if (minuAeg > teineAeg) return 1;
         else if (minuAeg == teineAeg) return 0;
         return -1;
+    }
+    public List<String> andmed() {
+        List<String> temp = new ArrayList<>();
+        temp.add(aeg);
+        temp.add(String.valueOf(hind));
+        temp.add(buss);
+        return temp;
     }
 }

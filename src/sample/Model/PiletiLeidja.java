@@ -1,4 +1,5 @@
 package sample.Model;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import sample.Model.AegHind;
 import sample.Model.Bussid;
@@ -16,18 +17,39 @@ public class PiletiLeidja {
     private String päev;
     private String kuu;
     private List<Bussid> bussid = new ArrayList<>();
-    //private final StringProperty lähtekohtProperty;
-    //private final StringProperty sihtkohtProperty;
-    //private final StringProperty päevProperty;
+    private List<StringProperty> väljumine = new ArrayList<>();
+    private List<StringProperty> hind = new ArrayList<>();
+    private List<StringProperty> misBuss = new ArrayList<>();
+    public List<AegHind> aegJaHind = new ArrayList<>();
 
 
-    public PiletiLeidja(String lähtekoht, String sihtkoht, String päev, String kuu) {
+    public PiletiLeidja(String lähtekoht, String sihtkoht, String päev, String kuu) throws Exception {
         this.lähtekoht = lähtekoht;
         this.sihtkoht = sihtkoht;
         this.päev = päev;
         this.kuu = kuu;
         bussid.add(new SimpleExpress(lähtekoht, sihtkoht, päev, kuu));
         bussid.add(new LuxExpress(lähtekoht, sihtkoht, päev, kuu));
+        for (Bussid buss: bussid) {
+            aegJaHind.addAll(buss.leiaVabuKohti());
+        }
+        for (AegHind aegHind : aegJaHind) {
+            väljumine.add(new SimpleStringProperty(aegHind.getAeg()));
+            hind.add(new SimpleStringProperty(aegHind.saaHind()));
+            misBuss.add(new SimpleStringProperty(aegHind.getBuss()));
+        }
+    }
+
+    public List<StringProperty> getVäljumine() {
+        return väljumine;
+    }
+
+    public List<StringProperty> getHind() {
+        return hind;
+    }
+
+    public List<StringProperty> getMisBuss() {
+        return misBuss;
     }
 
     public List<AegHind> leiaPiletid() throws Exception{
@@ -36,12 +58,16 @@ public class PiletiLeidja {
         List<AegHind> ajadHinnad = new ArrayList<>();
         for (Bussid buss : bussid){
             ajadHinnad.addAll(buss.leiaVabuKohti());
+            for (AegHind aegHind: ajadHinnad) {
+                väljumine.add(new SimpleStringProperty(aegHind.getAeg()));
+                hind.add(new SimpleStringProperty(aegHind.saaHind()));
+                misBuss.add(new SimpleStringProperty(aegHind.getBuss()));
+            }
         }
         return ajadHinnad;
     }
     public void prindiPiletid() throws Exception{
         Random r = new Random();
-
         List<AegHind> ajadHinnad = leiaPiletid();
         Collections.sort(ajadHinnad);
         System.out.println("Sul on " + ajadHinnad.size() + " valikut:");
@@ -52,5 +78,7 @@ public class PiletiLeidja {
         }
         AegHind rbuss = ajadHinnad.get(r.nextInt(ajadHinnad.size()));
         System.out.println("Soovitan sulle bussi " + rbuss.getBuss() + ", mis väljub kell " + rbuss.getAeg() + ".");
+
+
     }
 }

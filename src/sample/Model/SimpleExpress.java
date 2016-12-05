@@ -1,4 +1,5 @@
 package sample.Model;
+import javafx.beans.property.StringProperty;
 import org.jsoup.*;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,6 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SimpleExpress extends Bussid {
+    private StringProperty väljumine;
+    private StringProperty kellaaeg;
+    private StringProperty misBuss;
+
     public SimpleExpress(String lähtekoht, String sihtkoht, String päev, String kuu) {
         super(lähtekoht, sihtkoht, päev, kuu);
     }
@@ -48,10 +53,19 @@ public class SimpleExpress extends Bussid {
                 String väljumisaeg = element.parent().parent().parent().child(0).child(0).child(0).html();
                 String hind = element.child(0).html();
                 hind = hind.replaceAll(",", ".");
+
                 ajadHinnad.add(new AegHind(väljumisaeg, Double.parseDouble(hind), "SimpleExpress"));
             }
         }
         System.out.println("Leidsin " + ajadHinnad.size() + " bussi.");
         return ajadHinnad;
+    }
+
+    public List<String> andmed(String väljumine,String kellaaeg,String misBuss) {
+        List<String> temp = new ArrayList<>();
+        temp.add(väljumine);
+        temp.add(kellaaeg);
+        temp.add(misBuss);
+        return temp;
     }
 }

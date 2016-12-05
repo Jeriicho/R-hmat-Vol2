@@ -1,5 +1,6 @@
 package sample.Model;
 
+import javafx.beans.property.StringProperty;
 import org.jsoup.*;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -58,5 +59,13 @@ public class LuxExpress extends Bussid {
         }
         System.out.println("Leidsin " + ajadHinnad.size() + " bussi.");
         return ajadHinnad;
+    }
+
+    public List<String> andmed(String väljumine,String kellaaeg,String misBuss) {
+        List<String> temp = new ArrayList<>();
+        temp.add(väljumine);
+        temp.add(kellaaeg);
+        temp.add(misBuss);
+        return temp;
     }
 }
