@@ -10,9 +10,7 @@ import sample.Model.LeiaBuss;
 import sample.Model.PiletiLeidja;
 import sample.Peaklass;
 
-import java.io.DataOutputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,17 +45,19 @@ public class KoikBussidController {
 
 
     private Peaklass peaklass;
-
+    private BufferedWriter bfw;
 
     public KoikBussidController() {};
 
     @FXML
-    private void initialize() {
+    private void initialize() throws IOException{
         kuupäev.setItems(FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"));
         kuu.setItems(FXCollections.observableArrayList("Jaanuar", "Veebruar", "Märts", "Aprill", "Mai", "Juuni", "August", "September", "Oktoober", "November", "Detsember"));
-        lähtekoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Pärnu", "Narva"));
-        sihtkoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Pärnu", "Narva"));
-
+        lähtekoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Kuressaare", "Narva"));
+        sihtkoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Kuressaare", "Narva"));
+        bfw = new BufferedWriter(new FileWriter("logi.log", true));
+        bfw.write("Programm käivitub.\n");
+        bfw.close();
     }
 
     private void näitaBusse(LeiaBuss LeiaBuss) {
@@ -66,7 +66,7 @@ public class KoikBussidController {
 
     @FXML
     private void nupuVajutus() throws Exception {
-
+        bfw = new BufferedWriter(new FileWriter("logi.log", true));
         if (!(bussitabel.getItems().isEmpty())) {
             bussitabel.getColumns().removeAll();
         }
@@ -75,18 +75,22 @@ public class KoikBussidController {
         String month = kuu.getValue();
         String from = lähtekoht.getValue();
         String to = sihtkoht.getValue();
+        bfw.write("Otsin busse marsruudil " + from + " -> " + to + " kp " + kp + "." + month.toLowerCase() + "\n");
         LeiaBuss buska = new LeiaBuss(from, to, kp, kuuNumber(month));
         for (int i = 0; i < buska.getVäljumine().size(); i++) {
             bussiInfo.add(new BussiInfo(buska.getVäljumine().get(i), buska.getHind().get(i), buska.getMisBuss().get(i)));
-
         }
-
+        if (bussiInfo.size() == 0) bfw.write("Ei leidnud ühtegi bussi!\n");
+        else bfw.write("Leidsin järgnevad bussid: \n");
         for (BussiInfo buss : bussiInfo) {
             peaklass.getBussid().add(buss);
+            bfw.write(buss.toString() + "\n");
         }
+        bfw.write("--------------------------------\n");
         väljumisVeerg.setCellValueFactory(data -> data.getValue().väljumineProperty());
         bussiVeerg.setCellValueFactory(data -> data.getValue().misBussProperty());
         hinnaVeerg.setCellValueFactory(data -> data.getValue().hindProperty().asObject());
+        bfw.close();
     }
 
     public void setMainApp(Peaklass peaklass) {

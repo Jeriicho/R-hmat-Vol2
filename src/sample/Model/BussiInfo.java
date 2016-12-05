@@ -43,4 +43,8 @@ public class BussiInfo implements Serializable{
 
     }
 
+    @Override
+    public String toString() {
+        return misBuss.get() + "; " + väljumine.get() + "; " + hind.get();
+    }
 }
