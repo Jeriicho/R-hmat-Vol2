@@ -105,3 +105,45 @@ LuxExpress; 19:00; 8.0
 LuxExpress; 20:00; 8.0
 LuxExpress; 21:00; 8.0
 --------------------------------
+Programm käivitub.
+Otsin busse marsruudil Tartu -> Tallinn kp 5.detsember
+Leidsin järgnevad bussid: 
+SimpleExpress; 20:00; 10.0
+SimpleExpress; 21:00; 8.0
+LuxExpress; 20:00; 10.0
+LuxExpress; 21:00; 8.0
+--------------------------------
+Programm käivitub.
+Otsin busse marsruudil Tartu -> Tallinn kp 5.detsember
+Leidsin järgnevad bussid: 
+LuxExpress; 20:00; 10.0
+LuxExpress; 21:00; 8.0
+--------------------------------
+Otsin busse marsruudil Tartu -> Tallinn kp 6.detsember
+Leidsin järgnevad bussid: 
+SimpleExpress; 11:30; 5.0
+SimpleExpress; 13:15; 8.0
+SimpleExpress; 14:30; 5.0
+SimpleExpress; 15:45; 6.5
+SimpleExpress; 17:15; 8.0
+SimpleExpress; 18:30; 5.0
+LuxExpress; 06:30; 12.0
+LuxExpress; 07:30; 10.0
+LuxExpress; 08:00; 12.0
+LuxExpress; 08:15; 10.8
+LuxExpress; 10:00; 12.0
+LuxExpress; 11:00; 10.0
+LuxExpress; 12:00; 12.0
+LuxExpress; 12:30; 10.0
+LuxExpress; 13:00; 10.0
+LuxExpress; 14:00; 12.0
+LuxExpress; 15:00; 12.0
+LuxExpress; 15:30; 8.0
+LuxExpress; 16:00; 12.0
+LuxExpress; 16:30; 10.0
+LuxExpress; 17:00; 12.0
+LuxExpress; 18:00; 12.0
+LuxExpress; 19:00; 10.0
+LuxExpress; 20:00; 10.0
+LuxExpress; 21:00; 8.0
+--------------------------------

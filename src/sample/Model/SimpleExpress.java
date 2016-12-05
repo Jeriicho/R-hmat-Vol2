@@ -7,6 +7,7 @@ import org.jsoup.select.Elements;
 import sample.Model.Bussid;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -36,17 +37,22 @@ public class SimpleExpress extends Bussid {
         return koguURL;
     }
 
-    public List<AegHind> leiaVabuKohti() throws Exception{
+    public List<AegHind> leiaVabuKohti(){
         System.out.println("Otsin Simple'eid.");
         List<AegHind> ajadHinnad = new ArrayList<>();
-        URL url = new URL(genereeriMaandumisLeht());
-        URLConnection connect = url.openConnection();
-        BufferedReader in = new BufferedReader(new InputStreamReader((connect.getInputStream())));
-        String inputLine;
         String html = "";
-        while ((inputLine = in.readLine()) != null)
-            html += inputLine;
-        in.close();
+        try {
+            URL url = new URL(genereeriMaandumisLeht());
+            URLConnection connect = url.openConnection();
+            BufferedReader in = new BufferedReader(new InputStreamReader((connect.getInputStream())));
+            String inputLine;
+            html = "";
+            html = "";
+            while ((inputLine = in.readLine()) != null)
+                html += inputLine;
+            in.close();
+        } catch (IOException e){}
+        html = html.split("Teised vedajad")[0];
         Document doc = Jsoup.parse(html);
         Elements elemendid = doc.select(".full-price");
         for (Element element : elemendid) {
