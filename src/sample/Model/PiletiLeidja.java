@@ -1,6 +1,5 @@
 package sample.Model;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import sample.Model.AegHind;
 import sample.Model.Bussid;
 import sample.Model.LuxExpress;
@@ -18,7 +17,7 @@ public class PiletiLeidja {
     private String kuu;
     private List<Bussid> bussid = new ArrayList<>();
     private List<StringProperty> väljumine = new ArrayList<>();
-    private List<StringProperty> hind = new ArrayList<>();
+    private List<DoubleProperty> hind = new ArrayList<>();
     private List<StringProperty> misBuss = new ArrayList<>();
     public List<AegHind> aegJaHind = new ArrayList<>();
 
@@ -35,7 +34,7 @@ public class PiletiLeidja {
         }
         for (AegHind aegHind : aegJaHind) {
             väljumine.add(new SimpleStringProperty(aegHind.getAeg()));
-            hind.add(new SimpleStringProperty(aegHind.saaHind()));
+            hind.add(aegHind.saaHind());
             misBuss.add(new SimpleStringProperty(aegHind.getBuss()));
         }
     }
@@ -44,7 +43,7 @@ public class PiletiLeidja {
         return väljumine;
     }
 
-    public List<StringProperty> getHind() {
+    public List<DoubleProperty> getHind() {
         return hind;
     }
 
@@ -60,7 +59,7 @@ public class PiletiLeidja {
             ajadHinnad.addAll(buss.leiaVabuKohti());
             for (AegHind aegHind: ajadHinnad) {
                 väljumine.add(new SimpleStringProperty(aegHind.getAeg()));
-                hind.add(new SimpleStringProperty(aegHind.saaHind()));
+                hind.add(aegHind.saaHind());
                 misBuss.add(new SimpleStringProperty(aegHind.getBuss()));
             }
         }

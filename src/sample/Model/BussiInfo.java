@@ -1,5 +1,7 @@
 package sample.Model;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -7,7 +9,7 @@ import javafx.beans.property.StringProperty;
  */
 public class BussiInfo {
     private StringProperty väljumine;
-    private StringProperty hind;
+    private DoubleProperty hind;
     private StringProperty misBuss;
 
     public String getVäljumine() {
@@ -18,11 +20,8 @@ public class BussiInfo {
         return väljumine;
     }
 
-    public String getHind() {
-        return hind.get();
-    }
 
-    public StringProperty hindProperty() {
+    public DoubleProperty hindProperty() {
         return hind;
     }
 
@@ -34,7 +33,7 @@ public class BussiInfo {
         return misBuss;
     }
 
-    public BussiInfo(StringProperty väljumine, StringProperty hind, StringProperty misBuss) {
+    public BussiInfo(StringProperty väljumine, DoubleProperty hind, StringProperty misBuss) {
         this.väljumine = väljumine;
         this.hind = hind;
         this.misBuss = misBuss;

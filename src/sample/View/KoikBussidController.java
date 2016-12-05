@@ -28,7 +28,7 @@ public class KoikBussidController {
     TableColumn<BussiInfo, String> bussiVeerg;
 
     @FXML
-    TableColumn<BussiInfo, String> hinnaVeerg;
+    TableColumn<BussiInfo, Double> hinnaVeerg;
 
     @FXML
     private ChoiceBox<String> kuupäev;
@@ -81,7 +81,7 @@ public class KoikBussidController {
         }
         väljumisVeerg.setCellValueFactory(data -> data.getValue().väljumineProperty());
         bussiVeerg.setCellValueFactory(data -> data.getValue().misBussProperty());
-        hinnaVeerg.setCellValueFactory(data -> data.getValue().hindProperty());
+        hinnaVeerg.setCellValueFactory(data -> data.getValue().hindProperty().asObject());
     }
 
     public void setMainApp(Peaklass peaklass) {

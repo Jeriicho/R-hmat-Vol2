@@ -1,5 +1,10 @@
 package sample.Model;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +19,8 @@ public class AegHind implements Comparable<AegHind>{
         this.buss = buss;
     }
 
-    public String saaHind() {
-        return String.valueOf(hind);
+    public DoubleProperty saaHind() {
+        return new SimpleDoubleProperty(hind);
     }
 
     public String getAeg() {
