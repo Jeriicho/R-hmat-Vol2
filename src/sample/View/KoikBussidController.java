@@ -10,8 +10,11 @@ import sample.Model.LeiaBuss;
 import sample.Model.PiletiLeidja;
 import sample.Peaklass;
 
+import javax.swing.*;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -56,7 +59,7 @@ public class KoikBussidController {
         lähtekoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Kuressaare", "Narva"));
         sihtkoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Kuressaare", "Narva"));
         bfw = new BufferedWriter(new FileWriter("logi.log", true));
-        bfw.write("Programm käivitub.\n");
+        bfw.write("Programm käivitub. Tänane kuupäev: " + new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()) + "\n");
         bfw.close();
     }
 
@@ -65,16 +68,28 @@ public class KoikBussidController {
     }
 
     @FXML
-    private void nupuVajutus() throws IOException {
+    private void nupuVajutus() throws IOException, VigaseMarsruudiErind, TühjaLahtriErind {
         bfw = new BufferedWriter(new FileWriter("logi.log", true));
         if (!(bussitabel.getItems().isEmpty())) {
             bussitabel.getColumns().removeAll();
+        }
+        if (kuupäev.getValue() == null || kuu.getValue() == null || lähtekoht.getValue() == null || sihtkoht.getValue() == null){
+            bfw.write("!Tühi lahter!");
+            bfw.close();
+            JOptionPane.showMessageDialog(null, "Tühi lahter!");
+            //throw new TühjaLahtriErind();
+            return;
         }
         List<BussiInfo> bussiInfo  = new ArrayList<>();
         String kp = kuupäev.getValue();
         String month = kuu.getValue();
         String from = lähtekoht.getValue();
         String to = sihtkoht.getValue();
+        if (to.equals(from)){
+            bfw.write("!Vigane marsruut!\n");
+            bfw.close();
+            throw new VigaseMarsruudiErind();
+        }
         bfw.write("Otsin busse marsruudil " + from + " -> " + to + " kp " + kp + "." + month.toLowerCase() + "\n");
         LeiaBuss buska = new LeiaBuss(from, to, kp, kuuNumber(month));
         for (int i = 0; i < buska.getVäljumine().size(); i++) {

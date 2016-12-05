@@ -31,7 +31,7 @@ public class SimpleExpress extends Bussid {
         String algus = "https://pilet.simpleexpress.eu/reiside-soiduplaan/";
         String kuu = "?Date=";
         String lõpp = "";
-        if (getKuu() == "12") lõpp = "-2016&ReturnDate=&MultiHopSearchSortOrder=StartTimeAndDuration&CampaignCode=&Currency=CURRENCY.EUR";
+        if (getKuu().equals("12")) lõpp = "-2016&ReturnDate=&MultiHopSearchSortOrder=StartTimeAndDuration&CampaignCode=&Currency=CURRENCY.EUR";
         else lõpp = "-2017&ReturnDate=&MultiHopSearchSortOrder=StartTimeAndDuration&CampaignCode=&Currency=CURRENCY.EUR";
         String koguURL = algus + getLähtekoht() + "/" + getSihtkoht() + kuu + getKuu() + "-" + getPäev() + lõpp;
         return koguURL;
