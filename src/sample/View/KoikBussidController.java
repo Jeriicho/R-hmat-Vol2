@@ -7,7 +7,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import sample.Model.BussiInfo;
 import sample.Model.LeiaBuss;
-import sample.Model.PiletiLeidja;
+import sample.Model.TühjaLahtriErind;
+import sample.Model.VigaseMarsruudiErind;
 import sample.Peaklass;
 
 import javax.swing.*;
@@ -56,8 +57,8 @@ public class KoikBussidController {
     private void initialize() throws IOException{
         kuupäev.setItems(FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"));
         kuu.setItems(FXCollections.observableArrayList("Jaanuar", "Veebruar", "Märts", "Aprill", "Mai", "Juuni", "August", "September", "Oktoober", "November", "Detsember"));
-        lähtekoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Kuressaare", "Narva"));
-        sihtkoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Kuressaare", "Narva"));
+        lähtekoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Kuressaare", "Narva", "Rakvere", "Haapsalu", "Viljandi"));
+        sihtkoht.setItems(FXCollections.observableArrayList("Tallinn", "Tartu", "Kuressaare", "Narva", "Rakvere", "Haapsalu", "Viljandi"));
         bfw = new BufferedWriter(new FileWriter("logi.log", true));
         bfw.write("Programm käivitub. Tänane kuupäev: " + new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date()) + "\n");
         bfw.close();
@@ -71,7 +72,7 @@ public class KoikBussidController {
     private void nupuVajutus() throws IOException, VigaseMarsruudiErind, TühjaLahtriErind {
         bfw = new BufferedWriter(new FileWriter("logi.log", true));
         if (!(bussitabel.getItems().isEmpty())) {
-            bussitabel.getColumns().removeAll();
+            bussiVeerg.getColumns().removeAll();
         }
         if (kuupäev.getValue() == null || kuu.getValue() == null || lähtekoht.getValue() == null || sihtkoht.getValue() == null){
             bfw.write("!Tühi lahter!");
@@ -95,7 +96,10 @@ public class KoikBussidController {
         for (int i = 0; i < buska.getVäljumine().size(); i++) {
             bussiInfo.add(new BussiInfo(buska.getVäljumine().get(i), buska.getHind().get(i), buska.getMisBuss().get(i)));
         }
-        if (bussiInfo.size() == 0) bfw.write("Ei leidnud ühtegi bussi!\n");
+        if (bussiInfo.size() == 0){
+            bfw.write("Ei leidnud ühtegi bussi!\n");
+            JOptionPane.showMessageDialog(null, "Ei leidnud ühtegi bussi!");
+        }
         else bfw.write("Leidsin järgnevad bussid: \n");
         for (BussiInfo buss : bussiInfo) {
             peaklass.getBussid().add(buss);

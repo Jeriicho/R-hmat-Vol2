@@ -1,4 +1,4 @@
-package sample.View;
+package sample.Model;
 
 import javax.swing.*;
 
